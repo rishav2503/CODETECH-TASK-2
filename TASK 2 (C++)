@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Question {
+    string questionText;
+    string choices[4];
+    char correctAnswer;
+};
+
+void askQuestion(Question q, int &score) {
+    cout << q.questionText << endl;
+    for (int i = 0; i < 4; ++i) {
+        cout << char('A' + i) << ". " << q.choices[i] << endl;
+    }
+    char answer;
+    cout << "Your answer: ";
+    cin >> answer;
+    answer = toupper(answer);
+
+    if (answer == q.correctAnswer) {
+        cout << "Correct!\n\n";
+        score++;
+    } else {
+        cout << "Wrong. The correct answer is " << q.correctAnswer << ".\n\n";
+    }
+}
+
+int main() {
+    Question questions[] = {
+        {"What is the largest ocean on Earth?",
+         {"Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"},
+         'D'},
+
+        {"Who painted the Mona Lisa?",
+         {"Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"},
+         'C'},
+
+        {"What is the smallest prime number?",
+         {"0", "1", "2", "3"},
+         'C'},
+
+        {"What is the hardest natural substance on Earth?",
+         {"Gold", "Iron", "Diamond", "Silver"},
+         'C'},
+
+        {"Which planet is known as the Red Planet?",
+         {"Venus", "Mars", "Jupiter", "Saturn"},
+         'B'},
+
+        {"What is the chemical symbol for water?",
+         {"H2O", "CO2", "NaCl", "O2"},
+         'A'},
+
+        {"How many continents are there on Earth?",
+         {"5", "6", "7", "8"},
+         'C'},
+
+        {"Which element has the atomic number 1?",
+         {"Oxygen", "Hydrogen", "Carbon", "Nitrogen"},
+         'B'},
+
+        {"What is the capital of Japan?",
+         {"Beijing", "Seoul", "Bangkok", "Tokyo"},
+         'D'},
+
+        {"Who wrote the play 'Romeo and Juliet'?",
+         {"Mark Twain", "William Shakespeare", "Charles Dickens", "Jane Austen"},
+         'B'}
+    };
+
+    int score = 0;
+    int numberOfQuestions = sizeof(questions) / sizeof(questions[0]);
+
+    for (int i = 0; i < numberOfQuestions; ++i) {
+        askQuestion(questions[i], score);
+    }
+
+    cout << "You scored " << score << " out of " << numberOfQuestions << "." << endl;
+
+    if (score == numberOfQuestions) {
+        cout << "Excellent! You got all the answers right.\n";
+    } else if (score > numberOfQuestions / 2) {
+        cout << "Good job! You got more than half of the answers right.\n";
+    } else {
+        cout << "Better luck next time. Keep practicing!\n";
+    }
+
+    return 0;
+}
