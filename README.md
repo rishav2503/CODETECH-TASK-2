@@ -28,7 +28,7 @@ This is a simple C++ program that implements a multiple-choice quiz game. The ga
 
 ### Prerequisites
 
-- A C++ compiler (e.g., g++)
+- A  C++ compiler (e.g., g++)
 
 ## platform used for coding
 
