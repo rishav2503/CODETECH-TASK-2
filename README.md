@@ -30,10 +30,10 @@ This is a simple C++ program that implements a multiple-choice quiz game. The ga
 
 - A C++ compiler (e.g., g++)
 
-### Compilation
+## platform used for coding
 
-To compile the program, use the following command in your terminal:
+   -> visual studio code
 
-```sh
-g++ QuizGame.cpp -o QuizGame
+
+
 
